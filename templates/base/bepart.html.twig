@@ -1,0 +1,200 @@
+{% extends "base.html.twig" %}
+
+{% block javascripts %}
+
+
+
+    <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/animated-headline.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/menu.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/modernizr.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/isotope.pkgd.min.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.flexslider-min.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.animsition.min.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/init.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/main.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/smooth-scroll.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/numscroller.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/wow.min.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js')}}" ></script>
+     <!-- <script type="text/javascript" src="{{ asset('js/filters.js')}}" ></script> -->
+    <script type="text/javascript">
+        $(window).load(function() {
+            new WOW().init();
+
+            // initialise flexslider
+            $('.flexslider').flexslider({
+                animation: "fade",
+                directionNav: true,
+                controlNav: false,
+                keyboardNav: true,
+                slideToStart: 0,
+                animationLoop: true,
+                pauseOnHover: false,
+                slideshowSpeed: 4000,
+            });
+
+            smoothScroll.init();
+
+            // initialize isotope
+            var $container = $('.portfolio_container');
+            $container.isotope({
+                filter: '*',
+            });
+
+            $('.portfolio_filter a').click(function(){
+                $('.portfolio_filter .active').removeClass('active');
+                $(this).addClass('active');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 500,
+                        animationEngine : "jquery"
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    <!-- Block header et Footer -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/logo-short.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animsition.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+{% endblock %}
+
+
+{% block body %}
+
+<body class="animsition">
+<!-- Border -->
+<span class="frame-line top-frame visible-lg"></span>
+<span class="frame-line right-frame visible-lg"></span>
+<span class="frame-line bottom-frame visible-lg"></span>
+<span class="frame-line left-frame visible-lg"></span>
+<!-- HEADER  -->
+<header class="main-header" id="header-1">
+    <div class="container-fluid">
+        <!-- box header -->
+        <div class="box-header">
+            <div class="box-logo">
+                <a href="{{ path('home') }}"><img  class="logo-width" src="{{ asset('img/logo-home.png') }}" width="150" alt="logo de notre site"></a>
+            </div>
+            <!-- box-nav -->
+            <a class="box-primary-nav-trigger" href="#0">
+                <span class="box-menu-icon"></span>
+            </a>
+            <!-- box-primary-nav-trigger -->
+        </div>
+        <!-- fin box header -->
+
+        <!-- nav -->
+        <nav>
+            <ul class="box-primary-nav">
+                <li class="box-label">BE PART OF ART</li>
+
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li class="test1"><a href="{{ path('home') }}#aboutMe">About Me</a></li>
+                <li class="test1"><a href="{{ path('home') }}#portfolio">Portfolio</a></li>
+                <li class="test1"f><a href="{{ path('home') }}#actu">Actu</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
+
+                <li class="box-label">SOCIAL</li>
+
+                <li class="box-social"><a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li class="box-social"><a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li class="box-social"><a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+
+            </ul>
+        </nav>
+        <!-- fin nav -->
+
+
+    </div>
+</header>
+    {% block content %}
+
+
+
+
+
+
+    {% endblock %}
+<!-- Footer -->
+<footer class="main-footer">
+    <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+        <path d="M0 0 L50 100 L100 0 Z" fill="#fff" stroke="#fff"></path>
+    </svg>
+    <div class="container">
+        <div class="row mt-100 mb-50 footer-widgets">
+
+            <div class="col-md-6 col-xs-12">
+                <div class="footer-widget contact-widget">
+                    <p class="logo-footer img-responsive"> <span class="beFooter">BE</span> Part OF Art </p>
+                    <p>Je reste à votre disposition pour la moindre information.
+                        N'hésitez donc pas à me contacter soit par mail soit via mes différents réseaux sociaux.</p>
+                    <br>
+                    <ul class="social-icons">
+                        <li>
+                            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a class="instgram" href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+    <!-- infos supplémentaires -->
+            <div class="col-md-3 col-xs-12">
+                <div class="footer-widget twitter-widget">
+                    <h4>Contacts supplémentaires</h4>
+
+                    Email: <a href="mailto:floriandav6@gmail.com" class="mailto"> floriandav6@gmail.com</a>  <br>
+                    GSM: +12 34 56 78 91
+                </div>
+            </div>
+<!-- nav footer -->
+            <div class="col-md-3 col-xs-12">
+                <div class="footer-widget company-links">
+                    <h4>Menu</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ path('home') }}">Home</a></li>
+                        <li class="test1"><a href="{{ path('home') }}#aboutMe">About Me</a></li>
+                        <li class="test1"><a href="{{ path('home') }}#portfolio">Portfolio</a></li>
+                        <li class="test1"f><a href="{{ path('home') }}#actu">Actu</a></li>
+                        <li><a href="{{ path('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2022 - IPEPS SERAING SUP &nbsp; <i class="lnr lnr-rocket" style="color: #f88b8b;"></i>  &nbsp; Florian Davila Gomez</a> </p>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright -->
+    </div>
+</footer>
+{% endblock %}

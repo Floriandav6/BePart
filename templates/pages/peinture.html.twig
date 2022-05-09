@@ -1,0 +1,90 @@
+{% extends "base/bepart.html.twig" %}
+{% block content %}
+<!-- section dédiée au message de succès lors de l'envoi d'un commentaire -->
+    <section class="project_descr" style="margin-top: 15vh">
+        <div class="container mt-100">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="row center">
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                        <!--  titre de la peinture  -->
+                    <div class="section-title">
+                        <h2 class="mb-50"><span class="bg-text">{{ peinture.nom }}</span></h2>
+
+                    </div>
+                </div>
+            </div>
+            <!-- titre de la peinture -->
+            <div class="row mt-50">
+                <div class="col-md-9 wow fadeInUp">
+                    <p>{{ peinture.description }}</p>
+                </div>
+                <!-- infos concernant la peinture -->
+                <div class="col-md-3 wow fadeInUp" data-wow-delay=".1s">
+                    <ul class="project_list">
+                        <li> <span style="font-weight: 700">Prix:</span>&nbsp;{{ peinture.prix }}&nbsp;€</li>
+                        <li><span style="font-weight: 700">Date réalisation:</span>&nbsp;{{ peinture.dateRealisation|date('d/m/Y') }}</li>
+                        <li><span style="font-weight: 700">Largeur:</span>&nbsp;{{ peinture.largeur }}&nbsp;cm</li>
+                        <li><span style="font-weight: 700">Hauteur:</span>&nbsp;{{ peinture.hauteur }}&nbsp;cm</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="flexslider">
+            <div class="slides">
+
+                <img class="test1" src="{{vich_uploader_asset(peinture, 'imageFile')  }}" style="max-width: 50%; margin: 0 auto; transition: .3s linear;" alt="peinture au grand format" />
+                <!-- section contenant le formulaire de commentaire et les commentaires une fois validé -->
+                <div class="contact-form bottom">
+                    <div id="main-contact-form" >
+                        <!-- affichage des commentaires validés -->
+                        <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 10vh">
+                            <section>
+                                {% for com in commentaires %}
+                                    <div class="card-body">
+                                        <blockquote class="mb-0 tex-center">
+                                            <!-- contenu du commentaire -->
+                                            <p> {{ com.contenu }}</p>
+                                            <footer class="blockquote-footer">
+                                                <!-- auteur et date commentaire -->
+                                                <span class="bg-text3">Par {{ com.auteur }} le {{ com.createdAt|date('d/m/Y') }}</span>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                {% endfor %}
+                            </section>
+                        </div>
+                        <!-- début formulaire -->
+                <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 10vh" >
+                    {{ form_start(form) }}
+                    <div class="form-group comment-form" >
+                        {{ form_row(form.auteur,{'id':"name", 'attr':{'class':"form-control comment-form", }}) }}
+                    </div>
+                    <div class="form-group" >
+                        {{ form_row(form.email,{'id':"email", 'attr':{'class':"form-control comment-form", }}) }}
+                    </div>
+                    <div class="form-group" >
+                        {{ form_row(form.contenu,{'id':"company", 'attr':{'class':"form-control", }}) }}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="submit_btn" class="default-btn gray-btn">Envoyer <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

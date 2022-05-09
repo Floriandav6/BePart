@@ -1,0 +1,57 @@
+ {% extends "base/bepart.html.twig" %}
+
+
+
+ {% block content %}
+     <!-- Section: Design Block -->
+     <section id="testimonials" class="testimonials mt-100 mb-100 mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted mbr-parallax-background" style="background-image: url(../img/bg-connexion.jpg);">
+         <!-- Jumbotron -->
+         <div class="px-4 py-5 px-md-5 text-center text-lg-start" >
+             <div class="container">
+                 <div class="row gx-lg-5 align-items-center" style=" padding:10vh ">
+                     <div class="col-lg-6 mb-5 mb-lg-0">
+                         <h1 style="font-size: 25px; color: #333;letter-spacing: 10px;font-weight: 700;">
+                             Se connecter<br />
+
+                         </h1>
+                         <p style="color: black">
+                          Il est nécessaire de se connecter pour avoir accès à toute la partie administration du site.
+                         </p>
+                     </div>
+
+                     <div class="col-lg-6 mb-5 mb-lg-0">
+                         <div class="card">
+                             <div class="card-body py-5 px-md-5">
+                                 <form>
+                                     <!-- 2 column grid layout with text inputs for the first and last names -->
+
+                                     <div class="form-group">
+                                         <input type="text" name="username" id="username" class="form-control btn-form" required="required" placeholder="Nom d'utilisateur">
+                                     </div>
+
+                                     <!-- Password input -->
+                                     <div class="form-group">
+                                         <input type="password" name="password" id="password" class="form-control btn-form" required="required" placeholder="Mot de passe">
+                                     </div>
+                                     <!-- Submit button -->
+                                     <button type="submit" class="btn btn-primary btn-block btn-connexion mb-4">
+                                         Connexion
+                                     </button>
+
+                                     <!-- Register buttons -->
+
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- Jumbotron -->
+     </section>
+     <div style="height:10vh" class="space">
+
+     </div>
+     <!-- Section: Design Block -->
+
+ {% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base/bepart.html.twig' %}
+
+
+
+{% block content %}
+<section id="testimonials" class="testimonials mt-100 mb-100 mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted mbr-parallax-background" style="background-image: url(../img/bg-connexion.jpg); margin-top: 0vh">
+<!-- div pour l'affichage du message erreur-->
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <!-- div pour l'affichage du message 'connecté' -->
+    {% if app.user %}
+        <div class="mb-6" style="margin-left: 40vw; color: black">
+            Vous êtes connectés en tant que {{ app.user.email}}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    {% endif %}
+    <!-- formulaire de connexion -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" >
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center" style=" padding:10vh ">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 style="font-size: 25px; color: #333;letter-spacing: 10px;font-weight: 700;">
+                        Se connecter<br />
+
+                    </h1>
+                    <p style="color: black">
+                        Il est nécessaire de se connecter pour avoir accès à toute la partie administration du site.
+                    </p>
+                </div>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+    <label hidden for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control btn-form" autocomplete="email"  placeholder="Email" required autofocus>
+    <label hidden for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control btn-form" autocomplete="current-password" placeholder="Mot de passe" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn-lg btn-primary btn-block btn-connexion mb-4" type="submit">
+        Connexion
+    </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+</section>
+{% endblock %}

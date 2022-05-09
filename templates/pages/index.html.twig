@@ -1,0 +1,234 @@
+{% extends "base/bepart.html.twig" %}
+{% block content %}
+<!--  section acceuil du visiteur -->
+    <section class="box-intro bg-film" style="background-image: url({{ asset('../img/bg-1.jpg') }})">
+        <div class="table-cell">
+            <h3 class="box-headline letters rotate-2" >
+                <span class="box-words-wrapper">
+                    <b class="is-visible">JEUNE &nbsp;&amp;&nbsp; CREATIF</b>
+                    <b>&nbsp;SIMPLE &nbsp;&amp;&nbsp; ARTISTIQUE</b>
+                </span>
+            </h3>
+            <h1>BE PART OF ART</h1>
+
+        </div>
+
+        <div class="mouse">
+            <div class="scroll"></div>
+        </div>
+    </section>
+    <!-- suit et fin de l'acceuil avec image et petite texte -->
+    <section id="about" class="about mt-150 mb-50">
+        <div class="container">
+            <div class="row center">
+                <div class="col-md-8 col-md-offset-2">
+                    <img src="{{ asset('/img/pngtree.png') }}" alt="palette et pinceaux de peinture en noir et blanc" width="300">
+                    <div class="km-space"></div>
+                    <h5 class="lead">Bienvenue sur le site d'un artiste (en galère) qui tente cependant de se faire une petite place dans ce monde magnifique qu'est celui de l'art.</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- création d'un bouton de retour vers le haut avec comme déclencheur le scroll vers le bas -->
+
+    <div class="button-up text-right" id="back-to-top">
+        <a href="#header-1" id="btn-back-to-top" aria-label="Remonter en haut de la page" class="up-button btn btn-danger"><i class="lnr lnr-arrow-up " id="arrows"></i></a>
+    </div>
+
+<!--  première section à propos avec insertion d'images en background et textes descriptis artiste -->
+    <section id="aboutMe" class="services mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background"  style="background-image: url({{ asset('../img/bg-2.jpg') }});">
+        <div class="section-overlay" style="background-image:url({{ asset('../img/dot.gif') }})"></div>
+        <div class="container">
+            <div class="row center">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="section-title-parralax">
+                        <div class="process-numbers">01</div>
+                        <h2>ABOUT ME</h2>
+                        <p class="module-subtitle">Curieux d'en apprendre un peu plus sur l'homme derrière toutes ces toiles ? <br>
+                            Cette section est faite pour vous !
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 right col-full right-0">
+
+                    <i class="lnr lnr-pencil"></i>
+                    <h6> Là Où tout a commencé</h6>
+                    <p>Nous voici donc au prélude de mon hisoire.
+                        Tout a comméncé par quelques dessins en cours de math. Après en avoir vu plusieurs, mon éducatrice m'a conseillé de choisir la section "Art Plastique".
+                        <br>Probablement l'un des meilleurs conseil de toute ma VIE !
+                    </p>
+                </div>
+                <div class="col-lg-6 left col-full left-0">
+                    <i class="lnr lnr-graduation-hat"></i>
+                    <h6>SUITE ET FIN DE MON PARCOURS scolaire</h6>
+                    <p>Me voilà donc à terminer mon cursus dans la section art, j'y découvre donc mon monde !
+                        <br>Cette partie de ma vie m'a permis de toucher un peu aux septs arts et de me spécialiser dans la peinture et même d'y trouver mon style (enfin je me cherche toujours un peu).
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 right col-full right-0">
+                    <i class="lnr lnr-magic-wand"></i>
+
+                    <h6>Première désillusion</h6>
+                    <p>Crédule que je fus, j'ai cru en sortant de Saint-Luc pouvoir avoir ma place très vite dans cet univers.
+                        Mais que ne fût pas ma surpise en comprenant la place infime laissée aux nouveaux artistes...
+                        Mais bon après avoir enchaîné quelques petits boulots, j'ai pu commence à me faire exposer en galerie ainsi que vendre quelques toiles !
+                    </p>
+                </div>
+                <div class="col-lg-6 left col-full left-0">
+                    <i class="lnr lnr-star-half"></i>
+                    <h6>DE NOS JOURS</h6>
+                    <p>Et donc nous revoilà revenu à l'heure actuelle.
+                        <br>Comme vous aurez pu le comprendre dans cette rétrospective de mon parcours, j'essaye désormais de faire en sorte que l'art devienne mon métier principal mais ce chemin est long et compliqué. N'hésitez donc pas à me donner un coup de pouce si mes toiles vous parlent !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- section la plus importante le portfolio pour l'affichage des différentes oeuvres
+ mise en place  du système de filtre en fonction des catégories     -->
+
+    <section id="portfolio"class="portfolio">
+        <div class="top-right-separator hidden-xs"></div>
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                <div class="row center">
+                    <div class="section-title mb-100">
+                        <div class="process-numbers">02</div>
+                        <h2>portfolio</h2>
+                        <p class="module-subtitle">Vous pourrez admirer ici, une bonne partie de mes œuvres et ainsi vous faire un avis sur mon art.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- categories  -->
+            <div class="col-md-3">
+                <div class="row categories-grid">
+
+                    <div id="filters" class="categories">
+                        <ul>
+
+                            <h3 class="min-bg"><span style="font-size: 33px; font-weight: 400; width: auto" class="bg-text">Catégories</span></h3>
+
+                            {{ form_start(form) }}
+
+                         <li><a href="">{{ form_row(form.categories) }}</a></li>
+                            <button class="min-bg2" onclick="window.location.href='#portfolio'" type="submit" style="height:10vh ;background-color: transparent; border: none;"><span style="font-weight: 400; font-size: 25px" class="bg-text-2" > Filtrer </span> </button>
+                            {{ form_end(form) }}
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Toutes les oeuvres -->
+            <div class="col-md-9">
+                <div class="row portfolio_container">
+                    {% for peinture in peintures %}
+                    <!--boucle pour l'affichage des peintures -->
+                    <div class="col-md-4 photography">
+                        <a href="{{ path('peinture',{'id' : peinture.id}) }}" class="portfolio_item work-grid">
+                            <img src="{{vich_uploader_asset(peinture, 'imageFile')  }}" alt="peinture petit format">
+                            <div class="portfolio_item_hover">
+                                <div class="item_info">
+                                    <span>{{ peinture.nom }}</span>
+                                    <em>{{ peinture.prix | number_format ( 2,',',' ')}}&nbsp;€</em>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- fin de la boucle -->
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- création de la section avec les clients fictifs réalisés sur photoshop/illustrator, le tout contenu dans un slider-->
+    <div id="clients" class="clients mt-100 mbr-box mbr-section mbr-section--relative">
+        <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0 L50 100 L100 0 Z" fill="#fff" stroke="#fff"></path>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+                <div id="owl-demo">
+                    <div class="item"><img class="owl-img" src="{{ asset('img/clients/sponso1.png') }}" alt="client n°1"></div>
+                    <div class="item"><img class="owl-img" src="{{ asset('img/clients/sponso2.png') }}" alt="client n°2"></div>
+                    <div class="item"><img class="owl-img" src="{{ asset('img/clients/sponso3.png') }}" alt="client n°3"></div>
+                    <div class="item"><img class="owl-img" src="{{ asset('img/clients/sponso4.png') }}" alt="client n°4"></div>
+                    <div class="item"><img class="owl-img" src="{{ asset('img/clients/sponso5.png') }}" alt="client n°5"></div>
+                    <div class="item"><img class="owl-img" src="{{ asset('img/clients/sponso6.png') }}" alt="client n°6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- dernière section concernant toutes les actualités avec une petite image pour illustrer le propos.
+Egalement le tout contenu dans un slider -->
+    <div id="actu" class="row center">
+        <div class="col-md-8 col-md-offset-2 col-sm-12">
+            <div class="section-title-parralax">
+                <div class="process-numbers">03</div>
+                <h2>ACTU</h2>
+                <p class="module-subtitle">Ici vous pourrez suivre mes derniers faits et gestes. <br>
+                    Je vous conseille tout de même de jeter un oeil à mes différents réseaux, ça vaut le détour.
+            </div>
+        </div>
+    </div>
+    <section id="testimonials" class="testimonials mt-100 mb-100 mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted mbr-parallax-background" style="background-image: url({{ asset('../img/slide-quote.jpg') }});">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            {% for blogpost in blogposts %}
+<!-- boucle d'affichage des actus -->
+                            <li>
+                                <div class="avatar"><img src="{{vich_uploader_asset(blogpost, 'imageFile')  }}" alt="illustration de notre actualité"></div>
+                                <h5>"{{ blogpost.contenu}}"</h5>
+                                <p class="author">BPOA, {{ blogpost.createdAt|date('d/m/Y')}}"</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Mise en place d'un section amenant à la redirection vers la page contact si le visiteur le souhaite -->
+    <section id="contact" class="contact mbr-box mbr-section mbr-section--relative mbr-section--bg-adapted">
+        <div class="container">
+            <!-- <div class="col-md-6 col-sm-12"> -->
+            <div class="col-md-12"></div>
+            <div class="row">
+                <h4>Envie d'un peu plus ? </h4>
+                <p class="libre-text mt-50">
+                    Un de mes tableaux vous a tapé dans l'oeil ? Ou simplement intéréssé par mon style,
+                    on peut tout à fait discuter d'un projet personnel ensemble si vous pensez que je suis l'artiste idéal pour ce travail.
+                    <br>
+                    N'hésitez surtout pas à me contacter !
+                </p>
+
+                <a href={{ path('contact') }} class="default-btn">Entrer en contact<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        </div>
+    </section>
+{% endblock %}

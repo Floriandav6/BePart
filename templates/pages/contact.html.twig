@@ -1,0 +1,94 @@
+
+{% extends "base/bepart.html.twig" %}
+{% block content %}
+<!-- section avec titre -->
+<section class="contact_brick">
+    <div class="container mt-100">
+        <div class="row center">
+            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                <div class="section-title">
+                    <h2 class="mb-50"><span class="bg-text">ENVIE DE ME CONTACTER ? TRès bon CHOIX !</span></h2>
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-100">
+            <!--localisation-->
+            <div class="col-md-4 col-sm-4 text-center wow slideInLeft">
+                <div class="detail">
+                    <i class="lnr lnr-map-marker"></i>
+                    <h4><span>Pressé ? Vous pouvez me retrouver ici. </span></h4>
+                    <h3>Mon bureau</h3>
+                    <p>
+                        Rue de Colard Trouillet 48,
+                        <br> 4100 Seraing
+                    </p>
+                </div>
+            </div>
+            <!--fin localisation-->
+
+            <!--contact info-->
+            <div class="col-md-4 col-sm-4 text-center wow slideInUp">
+                <div class="detail">
+                    <i class="lnr lnr-phone"></i>
+                    <h4><span>Mes infos.</span></h4>
+                    <h3>Mes CONTACTS</h3>
+                    <p>
+                        <abbr title="Email">E-mail:</abbr> floriandav6@gmail.com
+                        <br>
+                        <abbr title="Phone">GSM:</abbr> +12 34 56 78 91
+                    </p>
+                </div>
+            </div>
+            <!--fincontact info-->
+
+            <!--contact info-->
+            <div class="col-md-4 col-sm-4 text-center wow slideInRight">
+                <div class="detail">
+                    <i class="lnr lnr-clock"></i>
+                    <h4><span>Pour me sonner, voici les dispos.</span></h4>
+                    <h3>Mes horaires</h3>
+                    <p>
+                        Lu -> Ve: 8h - 16h<br>
+                        Sa: 8h - 12h<br>
+
+                    </p>
+                </div>
+            </div>
+            <!--fin contact info-->
+        </div>
+        <!-- formulaire de contact -->
+        <div class="contact-form bottom">
+            <div id="main-contact-form" >
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    {{ form_start(form) }}
+                    <div class="form-group" >
+                        {{ form_row(form.Nom,{'id':"name", 'attr':{'class':"form-control", }}) }}
+                    </div>
+                    <div class="form-group" >
+                        {{ form_row(form.prenom,{'id':"company", 'attr':{'class':"form-control", }}) }}
+                    </div>
+                    <div class="form-group" >
+                        {{ form_row(form.email,{'id':"email", 'attr':{'class':"form-control", }}) }}
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        {{ form_row(form.message,{'id':"message", 'attr':{'class':"form-control", }}) }}
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="submit_btn" class="default-btn gray-btn">Envoyer <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
